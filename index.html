@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Cards</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .nav {
+            background-color: rgb(241, 45, 110);
+            color: white;
+            width: 100%;
+            height: 50px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .nav h3 {
+            margin: 0;
+        }
+
+        .nav-bar {
+            background-color: rgb(50, 50, 243);
+            height: 90px;
+            width: 100%;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-bar div p,
+        .nav-bar div h5 {
+            margin: 0;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: 5px;
+            padding: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            margin-right: 10px;
+            margin-left: auto;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+
+        .search-box input::placeholder {
+            color: #888;
+        }
+
+        .nav-bar img {
+            margin-left: 10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: white;
+            padding: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .profile-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .profile-header h3 {
+            margin: 0;
+            color: #333;
+        }
+
+        .profile-header p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .action-buttons {
+            margin: 20px 0;
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-buttons button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .action-buttons button:hover {
+            background-color: #0056b3;
+        }
+
+        .assets {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .asset {
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            flex: 1;
+            margin: 0 5px;
+        }
+
+        .asset:first-child {
+            margin-left: 0;
+        }
+
+        .asset:last-child {
+            margin-right: 0;
+        }
+          
+        /* Grid Container Styling */
+        .grid-container {
+            display: grid; /* Use grid layout */
+            grid-template-columns: repeat(2, 1fr); /* Ensures 2 equal columns */
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: #fff;
+            min-width: 300px; /* Fixed the issue here */
+        }
+
+        .card-content-wrapper {
+            display: flex;
+            align-items: flex-start; 
+            gap: 20px; 
+            
+            
+        }
+
+        .card-image img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover; 
+            background-color: rgb(97, 189, 247);
+            color: skyblue;
+        }
+
+        .card-content {
+            flex: 1; 
+            text-align: left; 
+            padding-top: 10px;
+            
+        }
+
+        .nested-cards-container {
+            display: flex; 
+            gap: 20px;
+            justify-content: space-between; 
+            margin-top: 20px;  
+            
+        }
+
+        .nested-card {
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 30%; 
+        }
+        .card-buttons {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+.btn {
+    padding: 15px 25px; 
+    font-size: 0.9rem; 
+    color: #fff;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 40%; 
+}
+
+.btn-danger {
+    background: rgb(235, 27, 62)
+}
+
+    </style>
+</head>
+<body>
+    <header class="nav">
+        <h3>My Will</h3>
+    </header>
+    <nav class="nav-bar">
+        <div>
+            <p>Good Morning, Vinoth!</p>
+            <h5>Today is 10 November 2024</h5>
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+        </div>
+        <div>
+            <img src="images/icons8-notification-50.png" alt="Notification Icon">
+            <img src="images/icons8-settings-50.png" alt="Settings Icon">
+            <img src="images/icons8-logout-50.png" alt="Logout Icon">
+        </div>
+    </nav>
+    <br><br>
+
+    <!-- Grid Cards Section -->
+    <div class="grid-container">
+        <!-- Card 1 -->
+        <div class="card">
+            <div class="card-content-wrapper">
+                <div class="card-image">
+                    <img src="images/download.jpeg" alt="Card Image 1">
+                </div>
+                <div class="card-content">
+                    <h2>Ethan Will</h2>
+                    <p>Date of Creation: 04/12/1988</p>
+                    <p>Status: Complete</p>
+                    <h2>$ 2.5 Lakhs</h2>
+                    <p>Worth assets today</p>
+                </div>
+            </div>
+        
+            <!-- Nested Cards Row -->
+            <div class="nested-cards-container">
+                <div class="nested-card">
+                    <h3>10</h3>
+                    <h4>Active Assets</h4>
+                </div>
+                <div class="nested-card">
+                    <h3>3</h3>
+                    <h4>Active Liabilities</h4>
+                </div>
+                <div class="nested-card">
+                    <h3>15</h3>
+                    <h4>Active Beneficiaries</h4>
+                </div>
+                <div class="nested-card">
+                    <h3>3</h3>
+                    <h4>Archived Signatories</h4>
+                </div>
+            </div>
+        
+            <div class="card-buttons">
+                <button class="btn btn-danger">Add New Asset</button><br>
+                <button class="btn btn-danger">Update Asset Value</button>
+            </div>
+            
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="card">
+            <h1>Signatory Will</h1>
+            
+            <!-- Nested Cards Row (Flex container) -->
+            <div class="nested-cards-container">
+                <div class="nested-card">
+                    <img src="images/images (1).jpeg" alt="Card Image 1" width="40%">
+                    <h3>Liam</h3>
+                    <p>Witness</p>
+                    <p>Date:28.04.2013</p>
+                    <p>Date:28.04.2013</p>
+                </div>
+                <div class="nested-card">
+                    <img src="images/images (1).jpeg" alt="Card Image 1" width="40%">
+                    <h3>Liam</h3>
+                    <p>Witness</p>
+                   <p>Date:28.04.2013</p>
+                   <p>Date:28.04.2013</p>
+                </div>
+                <div class="nested-card">
+                    <img src="images/images (1).jpeg" alt="Card Image 1" width="40%">
+                    <h3>Liam</h3>
+                    <p>Witness</p>
+                   <p>Date:28.04.2013</p>
+                   <p>Date:28.04.2013</p>
+                </div>
+            </div>
+            
+            <div class="card-buttons">
+                <button class="btn btn-danger">View Invitations</button>
+            </div>
+        </div>
+    </div>
+  
+</body>
+</html>
